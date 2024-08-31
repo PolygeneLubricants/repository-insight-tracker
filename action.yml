@@ -1,0 +1,53 @@
+name: "Repository Insight Tracker"
+description: "A GitHub Action to track and commit daily traffic, clones, and repository statistics like stargazers, commits, and contributors."
+author: "Andreas R. L. Christiansen"
+version: "1.0.0"
+
+inputs:
+  github-token:
+    description: "GitHub token with repo and actions permissions."
+    required: true
+  owner:
+    description: "The repository owner or organization."
+    default: ${{ github.owner }}
+    required: false
+  repository:
+    description: "Repository to track insights for."
+    default: ${{ github.repository }}
+    required: false
+  branch:
+    description: "The branch to commit the insights file to."
+    required: false
+    default: "repository-insights"
+  format:
+    description: "The format for the insights file, either 'json' or 'csv'."
+    required: false
+    default: "csv"
+  directory:
+    description: "The root directory where insights files will be stored."
+    required: false
+    default: "./.insights"
+
+outputs:
+  stargazers:
+    description: "The total number of stargazers in the repository."
+  commits:
+    description: "The total number of commits in the repository."
+  contributors:
+    description: "The total number of contributors in the repository."
+  traffic_views:
+    description: "The total number of views from yesterday."
+  traffic_uniques:
+    description: "The total number of unique views from yesterday."
+  clones_count:
+    description: "The total number of clones from yesterday."
+  clones_uniques:
+    description: "The total number of unique clones from yesterday."
+
+runs:
+  using: "node16"
+  main: "dist/index.js"
+
+branding:
+  icon: "bar-chart"
+  color: "blue"
