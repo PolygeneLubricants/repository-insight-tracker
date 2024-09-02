@@ -45,7 +45,7 @@ outputs:
     description: "The total number of unique clones from yesterday."
 
 runs:
-  using: "node16"
+  using: "node20"
   main: "dist/index.js"
 
 branding:
