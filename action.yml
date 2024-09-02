@@ -1,5 +1,5 @@
 name: "Repository Insight Tracker"
-description: "A GitHub Action to track and commit daily traffic, clones, and repository statistics like stargazers, commits, and contributors."
+description: "GitHub action to read repository insights daily and store these in a file. This enables more than 14 days of insights."
 author: "Andreas R. L. Christiansen"
 version: "1.0.0"
 
