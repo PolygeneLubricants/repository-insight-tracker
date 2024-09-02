@@ -66,6 +66,8 @@ This is the minimum configurable parameters to run the job,
 and will collect insights daily, on the repository that the workflow sits in, 
 and store these as a CSV file, on the branch repository-insights, in directory `/.insights/<owner>/<repository>/stats.csv`.
 
+#### 2.1 Simple example
+
 ```yaml
 name: Collect repository insights
 
@@ -79,9 +81,45 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Collect insights
-        uses: polygenelubricants/repository-insight-tracker@v1.0
+        uses: polygenelubricants/repository-insight-tracker@v1.0.0
         with:
           github-token: ${{ secrets.TOKEN }}
+```
+
+#### 2.2 Example with all input parameters
+
+Here is an example with full configurability in the action, that fetches insights from another repository (that you own), and subsequently writes the output to console.
+```yaml
+name: Collect repository insights
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight
+  workflow_dispatch:
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Collect insights
+        id: collect-insights
+        uses: polygenelubricants/repository-insight-tracker@v1.0.0
+        with:
+          github-token: ${{ secrets.TOKEN }}
+          branch: 'repository-insights'
+          format: 'csv'
+          directory: '.insights'
+          owner: 'PolygeneLubricants'
+          repository: 'planning-poker'
+      - name: Write insights to console
+        run: |
+          echo "Stargazers: ${{ steps.collect-insights.outputs.stargazers }}"
+          echo "Commits: ${{ steps.collect-insights.outputs.commits }}"
+          echo "Contributors: ${{ steps.collect-insights.outputs.contributors }}"
+          echo "Traffic Views Yesterday: ${{ steps.collect-insights.outputs.traffic_views }}"
+          echo "Unique Traffic Views Yesterday: ${{ steps.collect-insights.outputs.traffic_uniques }}"
+          echo "Clones Yesterday: ${{ steps.collect-insights.outputs.clones_count }}"
+          echo "Unique Clones Yesterday: ${{ steps.collect-insights.outputs.clones_uniques }}"
 ```
 
 ## How to contribute?
@@ -90,6 +128,6 @@ jobs:
 * Make your changes to the action's code in `index.js`.
 * Pack changes with the following commands:
   * `npm i -g @vercel/ncc`
-  * `ncc build load.js --license licenses.txt`
+  * `ncc build load.js --license licenses.txt -m`
 * The packaged index.js can be found under `dist/index.js`.
 * Open a PR in `polygenelubricants/repository-insight-tracker`.
