@@ -26,8 +26,6 @@ async function run() {
 
         const fileContent = await generateFileContent({
             octokit,
-            owner,
-            repo,
             branch,
             stargazerCount,
             commitCount,
@@ -135,11 +133,14 @@ function setOutputs({ stargazerCount, commitCount, contributorsCount, yesterdayT
     core.setOutput('clones_uniques', yesterdayClones.uniques);
 }
 
-async function generateFileContent({ octokit, owner, repo, branch, stargazerCount, commitCount, contributorsCount, yesterdayTraffic, yesterdayClones }) {
+async function generateFileContent({ octokit, branch, stargazerCount, commitCount, contributorsCount, yesterdayTraffic, yesterdayClones }) {
     const rootDir = core.getInput('directory');
     let format = core.getInput('format'); // 'json' or 'csv'
     format = format.toLowerCase();
-    const dirPath = path.join(rootDir, owner, repo);
+    const file_path_owner = core.getInput('owner');
+    const file_path_repo = core.getInput('repository');
+    const { owner, repo } = github.context.repo;
+    const dirPath = path.join(rootDir, file_path_owner, file_path_repo);
     const filePath = path.join(dirPath, `stats.${format}`);
 
     const newEntry = {
@@ -204,6 +205,8 @@ async function generateFileContent({ octokit, owner, repo, branch, stargazerCoun
         }
     } catch (error) {
         // If file doesn't exist, create new content
+        console.log(error);
+        console.log("Error finding file. Creating file.");
         if (format === 'json') {
             fileContent = JSON.stringify([newEntry], null, 2);
         } else if (format === 'csv') {
