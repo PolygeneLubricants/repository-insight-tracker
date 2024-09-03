@@ -323,4 +323,6 @@ async function commitFileToBranch({ octokit, branch, fileContent }) {
     });
 }
 
-run();
+module.exports = {
+  run
+}
