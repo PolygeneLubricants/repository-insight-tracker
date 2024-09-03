@@ -1,0 +1,17 @@
+name: Collect repository insights
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight
+  workflow_dispatch:
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Collect insights
+        uses: polygenelubricants/repository-insight-tracker@v1.0.0
+        with:
+          github-token: ${{ secrets.TOKEN }}
+          owner: 'PolygeneLubricants'
+          repository: 'repository-insight-tracker'
