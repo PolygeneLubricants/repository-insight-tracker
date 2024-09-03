@@ -127,9 +127,8 @@ jobs:
 * Clone the repository or download the files.
 * Make your changes to the action's code in `index.js`.
 * Write your tests in `__tests__`
-* Run the tests with `npx jest`
+* Run the tests with `npm test`
 * Pack changes with the following commands:
-  * `npm i -g @vercel/ncc`
-  * `ncc build index.js --license licenses.txt -m`
+  * `npm run build`
 * The packaged index.js can be found under `dist/index.js`.
 * Open a PR in `polygenelubricants/repository-insight-tracker`.

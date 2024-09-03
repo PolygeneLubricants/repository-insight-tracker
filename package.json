@@ -5,7 +5,12 @@
     "js-base64": "^3.7.7",
     "path": "^0.12.7"
   },
+  "scripts": {
+    "test": "jest",
+    "build": "ncc build index.js --license licenses.txt -m"
+  },
   "devDependencies": {
+    "@vercel/ncc": "^0.38.1",
     "jest": "^29.7.0",
     "nock": "^13.5.5"
   }
