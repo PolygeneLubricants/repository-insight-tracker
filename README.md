@@ -1,6 +1,6 @@
 # Github Action: Repository Insight Tracker
 
-This GitHub Action updates the repository statistics including the number of stargazers, commits, contributors, traffic views, and clones. 
+This GitHub Action updates the repository statistics including the number of stargazers, commits, contributors, traffic views, and clones.
 The results are stored in a JSON or CSV file and committed to a specified branch in the repository.
 
 1. Collects statistics on stargazers, commits, contributors, traffic views, and clones using the Github Rest API and GraphQL API.
@@ -43,12 +43,18 @@ To generate this and apply this token, follow the steps below:
 2. Go to Developer Settings,
 
 3. Generate a new token,
-    * In the developer settings, click on Personal Access Token,
+    * In the developer settings, click on Personal Access Token (PAT),
     * Click Generate new token,
     * Give your token a descriptive name (e.g., `Repository Stats Action`),
     * Under Select scopes, choose the following scopes:
         * `repo`: Full control of private repositories. Required if your repository is private.
         * `workflow`: Update GitHub Action workflows.
+    * A fine-grained PAT requires the following permissions:
+        * Repository access set to `All repositories` or `Only select repositories`
+          * For the latter, make sure to include the repository where the action is run and any repositories gathering insights from (if different).
+              * Repository permissions
+                  * `Administration`: Read-only
+                  * `Contents`: Read and write
     * Click Generate token
     * Copy the token to your clipboard. You won’t be able to see it again.
 4. Add the Token to Your Repository:
@@ -62,8 +68,8 @@ To generate this and apply this token, follow the steps below:
 
 To use this action in your repository, create a workflow file (e.g., `.github/workflows/update-stats.yml`) with the contents below.
 
-This is the minimum configurable parameters to run the job, 
-and will collect insights daily, on the repository that the workflow sits in, 
+This is the minimum configurable parameters to run the job,
+and will collect insights daily, on the repository that the workflow sits in,
 and store these as a CSV file, on the branch repository-insights, in directory `/.insights/<owner>/<repository>/stats.csv`.
 
 #### 2.1 Simple example

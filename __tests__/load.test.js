@@ -71,6 +71,136 @@ describe('Update Repository Stats Action', () => {
                 encoding: 'base64',
                 content: Buffer.from(JSON.stringify([
                     {
+                        date: '2024-08-19',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
+                        date: '2024-08-20',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
+                        date: '2024-08-21',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
+                        date: '2024-08-22',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
+                        date: '2024-08-23',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
+                        date: '2024-08-24',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
+                        date: '2024-08-25',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
+                        date: '2024-08-26',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
+                        date: '2024-08-27',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
+                        date: '2024-08-28',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
+                        date: '2024-08-29',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
+                        date: '2024-08-30',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
+                        date: '2024-08-31',
+                        stargazers: 5,
+                        commits: 15,
+                        contributors: 2,
+                        traffic_views: 50,
+                        traffic_uniques: 10,
+                        clones_count: 7,
+                        clones_uniques: 3
+                    },
+                    {
                         date: '2024-09-01',
                         stargazers: 5,
                         commits: 15,
